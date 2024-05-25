@@ -1,5 +1,4 @@
 import 'package:long_text_translator_gpt/model/model_pair.dart';
-import 'package:long_text_translator_gpt/model/translation_note/instant_note.dart';
 import 'package:long_text_translator_gpt/repository/SettingsRepository.dart';
 import 'package:long_text_translator_gpt/service/chatgpt/chatgptclient.dart';
 
@@ -75,8 +74,6 @@ class InstantNoteTranslatorService {
       _generateUserPrompt(text, targetLanguage),
     );
 
-    print("sysPrompt: $_sysPrompt\n" +
-        "userPrompt: ${_generateUserPrompt(text, targetLanguage)}\n");
     await for (final message in stream) {
       output += message;
 
